@@ -8,3 +8,7 @@ Este template corresponde ao exemplo da Fig. 2.3 do livro. O exercício consiste
 Tarefa individual.
 
 Incluir um Readme descritivo do sistema implementado.
+
+Teste de commit para ver se consigo alterar arquivos nesse repositório. Entrei na organização quando o professor manualmente fez o convite pelo prórpio github. Quando entrei nesse repositório consegui aceitar o convite do bot do github
+
+
