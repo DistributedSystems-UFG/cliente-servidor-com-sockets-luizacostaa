@@ -28,13 +28,15 @@ cursos_validos = ["cc", "es", "ia", "si"]
 curso = ""
 
 while curso not in cursos_validos:
-    print("Escolha o curso: cc, es, ia ou si")
+    print(f"Escolha o curso: {AZUL}cc{RESET}, {AZUL}es{RESET}, {AZUL}ia{RESET} ou {AZUL}si{RESET}")
     curso = input("Digite o curso: ").lower()
     if curso not in cursos_validos:
         print(f"{VERMELHO}Curso inválido! Tente novamente.{RESET}\n")
 
 print(f"\nÓtimo! {VERDE}{nome}{RESET}, você está lecionando a matéria de Sistemas distribuídos para o curso de {curso}.\n")
-print(f"Você pode fazer as seguintes operações: soma({AZUL}soma{RESET}), subtração({AZUL}sub{RESET}), multiplicação({AZUL}mult{RESET}), divisão({AZUL}div{RESET})\n\n")
+print(f"Você pode fazer as seguintes operações: soma({AZUL}soma{RESET}), subtração({AZUL}sub{RESET}), multiplicação({AZUL}mult{RESET}), divisão({AZUL}div{RESET})")
+print(f"Lembre-se que se desejar encerrar o programa, digite {VERMELHO}pare{RESET}\n")
+print("---------------------------------------------------------------------------\n")
 
 while True:
     op = input("Escolha a operação a ser executada (soma, sub, mult, div, pare): ")
@@ -43,7 +45,7 @@ while True:
         data = {"OP": "pare"}
         msg = pickle.dumps(data)
         s.sendall(msg)
-        print(f"{ROSA}Obrigada{RESET}, {nome} por executar o programa.\nEncerrando cliente...\n")
+        print(f"\n\n{ROSA}Obrigada{RESET}, {VERDE}{nome}{RESET} por executar o programa.\nEncerrando cliente...\n")
         break
 
     # se a operação for invalida
@@ -66,8 +68,8 @@ while True:
     data = pickle.loads(msg)
 
     if data["STATUS"] == "OK":
-        print(f"{VERDE}Resultado:{RESET} {data['RES']}")
+        print(f"{VERDE}Resultado:{RESET} {data['RES']}\n")
     else:
-        print(f"{VERMELHO}Erro:{RESET} {data['RES']}")
+        print(f"{VERMELHO}Erro:{RESET} {data['RES']}\n")
 
 s.close()
